@@ -1,6 +1,6 @@
 import { Form } from 'react-bootstrap'
 
-const AddFunction = ({ changeInput }) => {
+const AddFunction = ({ changeInput, clearInput }) => {
 	return (
 		<div className='buttons'>
 			<Form>

@@ -9,25 +9,16 @@ import Plus from '../Icon/Plus'
 import ModalAdd from './Modal/ModalAdd'
 import ModalEdit from './Modal/ModalEdit'
 
-const nowData = moment().format('YYYY/MM/DD')
 function getEmptyList() {
 	return {
-		id: 5, // generate id
+		id: Math.random(),
 		name: '',
 		status: '',
 		desc: '',
-		date: nowData,
+		date: moment().format('YYYY/MM/DD'),
 	}
 }
-const lists = [
-	{
-		id: 1,
-		name: 'Налоговый',
-		date: '2010/12/01',
-		status: 'DONE',
-		desc: 'loremIpsun',
-	},
-]
+const lists = []
 function Blocks() {
 	// useState
 	// modal
@@ -41,7 +32,7 @@ function Blocks() {
 	const [obj, setObj] = useState(lists)
 
 	//other
-	const [activeKey, setActiveKey] = useState('1')
+	const [activeKey, setActiveKey] = useState()
 
 	//refs
 	let nameRef = React.createRef()
@@ -60,20 +51,27 @@ function Blocks() {
 					: item
 			)
 		)
+		nameRef.current.value = ''
+		statusRef.current.value = ''
+		descRef.current.value = ''
 	}
 
 	// add new item in list
 	const addList = () => {
 		setValue([...objArr, obj]) // add obj to array
 		setObj(getEmptyList()) // save obj
+		clearInput()
 	}
 
+	const clearInput = event => {
+		event.target.value = ''
+	}
 	const changeInput = (prop, event) => {
 		setObj({ ...obj, [prop]: event.target.value })
 	}
 
 	return (
-		<Tab.Container id='list-group-tabs-example' defaultActiveKey={activeKey}>
+		<Tab.Container id='list-group-tabs-example'>
 			<Row>
 				<Col sm={6}>
 					<ListGroup className='first-block'>
@@ -82,14 +80,11 @@ function Blocks() {
 								as='li'
 								className={
 									activeKey === item.id
-										? 'my-5 d-flex justify-content-between align-items-start active'
-										: 'my-5 d-flex justify-content-between align-items-start'
+										? 'my-2 d-flex justify-content-between align-items-start active'
+										: 'my-2 d-flex justify-content-between align-items-start'
 								}
+								onClick={() => setActiveKey(item.id)}
 								action
-								href={item.id}
-								onClick={() => {
-									setActiveKey(item.id)
-								}}
 							>
 								<div className='ms-2 me-auto'>
 									<div className='fw-bold'>Тип процесса: {item.name}</div>
@@ -113,13 +108,15 @@ function Blocks() {
 						</div>
 					</div>
 					<Tab.Content className='second-block'>
-						{lists.map(item => (
-							<Tab.Pane eventKey={item.id}>
-								<h3>{item.name}</h3>
-								<hr />
-								<p>{item.desc}</p>
-							</Tab.Pane>
-						))}
+						{objArr
+							.filter(f => f.id === activeKey)
+							.map(item => (
+								<>
+									<h3>{item.name}</h3>
+									<hr />
+									<p>{item.desc}</p>
+								</>
+							))}
 					</Tab.Content>
 				</Col>
 			</Row>
@@ -133,6 +130,7 @@ function Blocks() {
 				descRef={descRef}
 			/>
 			<ModalAdd
+				clearInput={clearInput}
 				addList={addList}
 				changeInput={changeInput}
 				basicModal={basicModal1}

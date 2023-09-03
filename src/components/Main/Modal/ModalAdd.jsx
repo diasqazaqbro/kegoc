@@ -17,6 +17,7 @@ export default function ModalAdd({
 	toggleShow,
 	addList,
 	changeInput,
+	clearInput,
 }) {
 	return (
 		<>
@@ -32,7 +33,7 @@ export default function ModalAdd({
 							></MDBBtn>
 						</MDBModalHeader>
 						<MDBModalBody>
-							<AddFunction changeInput={changeInput} />
+							<AddFunction clearInput={clearInput} changeInput={changeInput} />
 						</MDBModalBody>
 
 						<MDBModalFooter>
