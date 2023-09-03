@@ -1,28 +1,14 @@
+import { Dropdown, DropdownButton } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+
 function DropdownComponent() {
 	return (
-		<div class='dropdown'>
-			<button
-				class='btn btn-primary dropdown-toggle'
-				type='button'
-				id='dropdownMenuButton'
-				data-mdb-toggle='dropdown'
-				aria-expanded='false'
-			>
-				Account
-			</button>
-			<ul class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-				<li>
-					<a class='dropdown-item' href='#'>
-						Switch account
-					</a>
-				</li>
-				<li>
-					<a class='dropdown-item' href='#'>
-						Logout
-					</a>
-				</li>
-			</ul>
-		</div>
+		<DropdownButton id='dropdown-basic-button' title='Account'>
+			<Dropdown.Item>Switch account</Dropdown.Item>
+			<Dropdown.Item>
+				<Link to='/'>Logout</Link>
+			</Dropdown.Item>
+		</DropdownButton>
 	)
 }
 
