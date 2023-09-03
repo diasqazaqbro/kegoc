@@ -60,7 +60,7 @@ function Blocks() {
 	const addList = () => {
 		setValue([...objArr, obj]) // add obj to array
 		setObj(getEmptyList()) // save obj
-		clearInput()
+		// clearInput()
 	}
 
 	const clearInput = event => {
@@ -74,28 +74,32 @@ function Blocks() {
 		<Tab.Container id='list-group-tabs-example'>
 			<Row>
 				<Col sm={6}>
-					<ListGroup className='first-block'>
-						{objArr.map(item => (
-							<ListGroup.Item
-								as='li'
-								className={
-									activeKey === item.id
-										? 'my-2 d-flex justify-content-between align-items-start active'
-										: 'my-2 d-flex justify-content-between align-items-start'
-								}
-								onClick={() => setActiveKey(item.id)}
-								action
-							>
-								<div className='ms-2 me-auto'>
-									<div className='fw-bold'>Тип процесса: {item.name}</div>
-									<div className='d-flex'>
-										<div>Data: {item.date}</div>
-										<div className='mx-3'>Status: {item.status} </div>
+					{objArr.length !== 0 ? (
+						<ListGroup className='first-block'>
+							{objArr.map(item => (
+								<ListGroup.Item
+									as='li'
+									className={
+										activeKey === item.id
+											? 'my-2 d-flex justify-content-between align-items-start active'
+											: 'my-2 d-flex justify-content-between align-items-start'
+									}
+									onClick={() => setActiveKey(item.id)}
+									action
+								>
+									<div className='ms-2 me-auto'>
+										<div className='fw-bold'>Тип процесса: {item.name}</div>
+										<div className='d-flex'>
+											<div>Data: {item.date}</div>
+											<div className='mx-3'>Status: {item.status} </div>
+										</div>
 									</div>
-								</div>
-							</ListGroup.Item>
-						))}
-					</ListGroup>
+								</ListGroup.Item>
+							))}
+						</ListGroup>
+					) : (
+						<h2 className='text-center my-4'>there is nothing</h2>
+					)}
 				</Col>
 				<Col sm={6}>
 					<div className='button edit-btn'>
