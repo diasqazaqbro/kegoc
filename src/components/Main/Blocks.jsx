@@ -18,7 +18,22 @@ function getEmptyList() {
 		date: moment().format('YYYY/MM/DD'),
 	}
 }
-const lists = []
+const lists = [
+	{
+		id: Math.random(),
+		name: 'Налоговый вычет',
+		status: 'DONE',
+		desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis auctor dolor. Etiam ut mattis metus. Proin non mi suscipit, laoreet odio non, efficitur quam. Etiam maximus sit amet neque non pretium. Vivamus fermentum ultricies scelerisque. Vivamus maximus maximus urna at mollis. Nulla bibendum, nulla ac vehicula dictum, lectus dolor eleifend ante, sit amet vulputate lorem diam sit amet neque. Mauris fringilla gravida gravida. Nulla lacus est, consequat vel ligula at, congue viverra nisl. Aliquam porttitor rutrum velit, in hendrerit dolor facilisis et. Pellentesque purus velit, sodales quis justo eu, gravida rhoncus velit. Aenean quis malesuada ipsum. In scelerisque elit vel mi accumsan, vel rhoncus quam consequat. Suspendisse tempor enim eget gravida posuere. Curabitur volutpat luctus nibh, quis pulvinar sem tempor sed. Suspendisse id libero quis felis vestibulum tempor. Fusce ornare, orci in ultricies rutrum, neque lorem vulputate metus, ut venenatis metus odio sit amet leo. Suspendisse mattis quam nec aliquet pretium. Proin viverra odio sit amet quam auctor condimentum. Morbi consectetur rhoncus purus non semper. Phasellus commodo lectus vitae felis condimentum, vitae commodo nibh euismod. Sed bibendum placerat magna, nec rhoncus purus placerat id. Duis elementum dignissim',
+		date: moment().format('YYYY/MM/DD'),
+	},
+	{
+		id: Math.random(),
+		name: 'Налоговый процесс',
+		status: 'SUCCESS',
+		desc: 'Aliquam eget urna vulputate, ultrices turpis et, rhoncus lectus. Nam sit amet nunc nulla. Nulla vitae laoreet ipsum, in sollicitudin arcu. Suspendisse auctor nulla sit amet auctor faucibus. Phasellus bibendum enim a nisl gravida dictum. Sed eget ex rhoncus, dapibus tortor ut, hendrerit diam. Quisque at libero tincidunt, cursus ante eget, semper justo. Morbi lacinia at quam sit amet tempus. Nunc consequat quam vitae quam eleifend, ut finibus est hendrerit. Suspendisse tellus enim, volutpat sed tellus sit amet, rutrum tristique ante. Donec egestas id augue ut sollicitudin. Aenean convallis lectus metus, et ',
+		date: moment().format('YYYY/MM/DD'),
+	},
+]
 function Blocks() {
 	// useState
 	// modal
