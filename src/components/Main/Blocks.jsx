@@ -84,6 +84,26 @@ function Blocks() {
 		setList(list.filter(p => activeKey !== p.id))
 	}
 
+	// clear add input
+	const clearInput = () => {
+		setName('')
+		setStatus('')
+		setType('')
+		setDesc1('')
+		setDesc2('')
+		setDesc3('')
+	}
+
+	// switch variable
+	const switchVar = item => {
+		setName(item.name)
+		setStatus(item.status)
+		setType(item.type)
+		setDesc1(item.desc1)
+		setDesc2(item.desc2)
+		setDesc3(item.desc3)
+	}
+
 	return (
 		<Tab.Container id='list-group-tabs-example'>
 			<Row>
@@ -92,13 +112,17 @@ function Blocks() {
 						<ListGroup className='first-block'>
 							{list.map(item => (
 								<ListGroup.Item
+									key={item.id}
 									as='li'
 									className={
 										activeKey === item.id
 											? 'my-2 d-flex justify-content-between align-items-start active'
 											: 'my-2 d-flex justify-content-between align-items-start'
 									}
-									onClick={() => setActiveKey(item.id)}
+									onClick={() => {
+										setActiveKey(item.id)
+										switchVar(item)
+									}}
 									action
 								>
 									<div className='ms-2 me-auto'>
@@ -123,7 +147,12 @@ function Blocks() {
 							<Edit />
 						</div>
 
-						<div onClick={toggleShow1}>
+						<div
+							onClick={() => {
+								clearInput()
+								toggleShow1()
+							}}
+						>
 							<Plus />
 						</div>
 						<div onClick={remove}>
@@ -134,7 +163,7 @@ function Blocks() {
 						{list
 							.filter(f => f.id === activeKey)
 							.map(item => (
-								<>
+								<div key={item.id}>
 									<h3>
 										{item.type}: {item.name}
 									</h3>
@@ -142,7 +171,7 @@ function Blocks() {
 									<p>{item.desc1}</p>
 									<p>{item.desc2}</p>
 									<p>{item.desc3}</p>
-								</>
+								</div>
 							))}
 					</Tab.Content>
 				</Col>

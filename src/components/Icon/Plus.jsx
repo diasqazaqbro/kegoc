@@ -5,7 +5,7 @@ const Plus = () => {
 			width='40'
 			height='40'
 			fill='currentColor'
-			class='bi bi-plus'
+			className='bi bi-plus'
 			viewBox='0 0 16 16'
 		>
 			{' '}

@@ -5,7 +5,7 @@ const Refresh = () => {
 			width='30'
 			height='30'
 			fill='currentColor'
-			class='bi bi-arrow-counterclockwise'
+			className='bi bi-arrow-counterclockwise'
 			viewBox='0 0 16 16'
 		>
 			{' '}

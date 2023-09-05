@@ -5,7 +5,7 @@ const Edit = () => {
 			width='30'
 			height='30'
 			fill='currentColor'
-			class='bi bi-pencil'
+			className='bi bi-pencil'
 			viewBox='0 0 16 16'
 		>
 			{' '}
