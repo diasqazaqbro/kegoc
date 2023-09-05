@@ -1,12 +1,11 @@
 import moment from 'moment/moment'
 import React, { useState } from 'react'
 import Col from 'react-bootstrap/Col'
-import ListGroup from 'react-bootstrap/ListGroup'
 import Row from 'react-bootstrap/Row'
 import Tab from 'react-bootstrap/Tab'
-import Delete from '../Icon/Delete'
-import Edit from '../Icon/Edit'
-import Plus from '../Icon/Plus'
+import Buttons from './Buttons'
+import AboutItem from './Item/AboutItem'
+import GroupItem from './Item/GroupItem'
 import ModalAdd from './Modal/ModalAdd'
 import ModalEdit from './Modal/ModalEdit'
 
@@ -109,69 +108,28 @@ function Blocks() {
 			<Row>
 				<Col sm={4}>
 					{list.length !== 0 ? (
-						<ListGroup className='first-block'>
-							{list.map(item => (
-								<ListGroup.Item
-									key={item.id}
-									as='li'
-									className={
-										activeKey === item.id
-											? 'my-2 d-flex justify-content-between align-items-start active'
-											: 'my-2 d-flex justify-content-between align-items-start'
-									}
-									onClick={() => {
-										setActiveKey(item.id)
-										switchVar(item)
-									}}
-									action
-								>
-									<div className='ms-2 me-auto'>
-										<div className='fw-bold'>
-											{item.type}: {item.name}
-										</div>
-										<div className='d-flex'>
-											<div>Data: {item.date}</div>
-											<div className='mx-3'>Status: {item.status} </div>
-										</div>
-									</div>
-								</ListGroup.Item>
-							))}
-						</ListGroup>
+						<GroupItem
+							list={list}
+							activeKey={activeKey}
+							setActiveKey={setActiveKey}
+							switchVar={switchVar}
+						/>
 					) : (
 						<h2 className='text-center my-4'>there is nothing</h2>
 					)}
 				</Col>
 				<Col sm={8}>
-					<div className='button edit-btn'>
-						<div onClick={toggleShow}>
-							<Edit />
-						</div>
-
-						<div
-							onClick={() => {
-								clearInput()
-								toggleShow1()
-							}}
-						>
-							<Plus />
-						</div>
-						<div onClick={remove}>
-							<Delete />
-						</div>
-					</div>
+					<Buttons
+						toggleShow={toggleShow}
+						toggleShow1={toggleShow1}
+						remove={remove}
+						clearInput={clearInput}
+					/>
 					<Tab.Content className='second-block'>
 						{list
 							.filter(f => f.id === activeKey)
 							.map(item => (
-								<div key={item.id}>
-									<h3>
-										{item.type}: {item.name}
-									</h3>
-									<hr />
-									<p>{item.desc1}</p>
-									<p>{item.desc2}</p>
-									<p>{item.desc3}</p>
-								</div>
+								<AboutItem item={item} />
 							))}
 					</Tab.Content>
 				</Col>
