@@ -16,8 +16,18 @@ export default function ModalAdd({
 	setBasicModal,
 	toggleShow,
 	addList,
-	changeInput,
-	clearInput,
+	setName,
+	setStatus,
+	setType,
+	setDesc1,
+	setDesc2,
+	setDesc3,
+	name,
+	status,
+	type,
+	desc1,
+	desc2,
+	desc3,
 }) {
 	return (
 		<>
@@ -33,7 +43,20 @@ export default function ModalAdd({
 							></MDBBtn>
 						</MDBModalHeader>
 						<MDBModalBody>
-							<AddFunction clearInput={clearInput} changeInput={changeInput} />
+							<AddFunction
+								setName={setName}
+								setStatus={setStatus}
+								setType={setType}
+								setDesc1={setDesc1}
+								setDesc2={setDesc2}
+								setDesc3={setDesc3}
+								name={name}
+								status={status}
+								type={type}
+								desc1={desc1}
+								desc3={desc3}
+								desc2={desc2}
+							/>
 						</MDBModalBody>
 
 						<MDBModalFooter>

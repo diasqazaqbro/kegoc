@@ -16,9 +16,18 @@ export default function ModalEdit({
 	setBasicModal,
 	toggleShow,
 	editList,
-	nameRef,
-	statusRef,
-	descRef,
+	setName,
+	setStatus,
+	setType,
+	setDesc1,
+	setDesc2,
+	setDesc3,
+	name,
+	type,
+	status,
+	desc1,
+	desc2,
+	desc3,
 }) {
 	return (
 		<>
@@ -35,9 +44,18 @@ export default function ModalEdit({
 						</MDBModalHeader>
 						<MDBModalBody>
 							<EditFunction
-								nameRef={nameRef}
-								statusRef={statusRef}
-								descRef={descRef}
+								setName={setName}
+								setStatus={setStatus}
+								setType={setType}
+								setDesc1={setDesc1}
+								setDesc2={setDesc2}
+								setDesc3={setDesc3}
+								name={name}
+								status={status}
+								type={type}
+								desc1={desc1}
+								desc3={desc3}
+								desc2={desc2}
 							/>
 						</MDBModalBody>
 
