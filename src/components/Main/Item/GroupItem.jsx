@@ -1,6 +1,17 @@
 import { ListGroup } from 'react-bootstrap'
 
 const GroupItem = ({ list, activeKey, setActiveKey, switchVar }) => {
+	const statusSpan = item => {
+		if (item === 'Submitted') {
+			return <span className='badge bg-success'>{item}</span>
+		} else if (item === 'Failed') {
+			return <span className='badge bg-danger'>{item}</span>
+		} else if (item === 'In a progress') {
+			return <span className='badge bg-warning'>{item}</span>
+		} else if (item === 'Done') {
+			return <span className='badge bg-dark'>{item}</span>
+		}
+	}
 	return (
 		<ListGroup className='first-block'>
 			{list.map(item => (
@@ -24,7 +35,7 @@ const GroupItem = ({ list, activeKey, setActiveKey, switchVar }) => {
 						</div>
 						<div className='d-flex'>
 							<div>Data: {item.date}</div>
-							<div className='mx-3'>Status: {item.status} </div>
+							<div className='mx-3'>Status: {statusSpan(item.status)}</div>
 						</div>
 					</div>
 				</ListGroup.Item>
