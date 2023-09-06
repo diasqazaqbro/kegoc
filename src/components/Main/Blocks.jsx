@@ -9,7 +9,99 @@ import GroupItem from './Item/GroupItem'
 import ModalAdd from './Modal/ModalAdd'
 import ModalEdit from './Modal/ModalEdit'
 
-const lists = []
+const lists = [
+	{
+		id: Math.random(),
+		name: 'Налоговый процесс',
+		status: 'Submitted',
+		type: '1',
+		desc1:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc2:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc3:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		date: moment().format('YYYY/MM/DD'),
+	},
+	{
+		id: Math.random(),
+		name: 'Какой то процесс',
+		status: 'Failed',
+		type: '2',
+		desc1:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc2:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc3:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		date: moment().format('YYYY/MM/DD'),
+	},
+	{
+		id: Math.random(),
+		name: 'Пенсионный процесс',
+		status: 'Done',
+		type: '1',
+		desc1:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc2:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc3:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		date: moment().format('YYYY/MM/DD'),
+	},
+	{
+		id: Math.random(),
+		name: 'Страховый',
+		status: 'Done',
+		type: '2',
+		desc1:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc2:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc3:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		date: moment().format('YYYY/MM/DD'),
+	},
+	{
+		id: Math.random(),
+		name: 'Парламентский процесс',
+		status: 'Failed',
+		type: '3',
+		desc1:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc2:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc3:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		date: moment().format('YYYY/MM/DD'),
+	},
+	{
+		id: Math.random(),
+		name: 'Судебный процесс',
+		status: 'Submitted',
+		type: '2',
+		desc1:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc2:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc3:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		date: moment().format('YYYY/MM/DD'),
+	},
+	{
+		id: Math.random(),
+		name: 'Зарплата',
+		status: 'Submitted',
+		type: '2',
+		desc1:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc2:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		desc3:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+		date: moment().format('YYYY/MM/DD'),
+	},
+]
 function Blocks() {
 	// modal
 	const [basicModal, setBasicModal] = useState(false)
