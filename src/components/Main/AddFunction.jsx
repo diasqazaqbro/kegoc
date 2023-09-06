@@ -1,4 +1,5 @@
 import { MDBCheckbox, MDBSwitch } from 'mdb-react-ui-kit'
+import React from 'react'
 import { Form } from 'react-bootstrap'
 import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -49,6 +50,7 @@ const AddFunction = ({
 					<ReactDatePicker
 						selected={startDate}
 						onChange={date => setStartDate(date)}
+						dateFormat='dd.MM.yyyy'
 					/>
 				</Form.Group>
 				<Form.Group className='mb-3' controlId='formBasicPassword'>
@@ -60,12 +62,13 @@ const AddFunction = ({
 					/> */}
 
 					<MDBCheckbox
-						name='flexCheck'
-						value=''
-						id='flexCheckDefault'
+						checked={desc1}
+						onChange={() => {
+							setDesc1(!desc1)
+						}}
 						label='1 checkbox'
 					/>
-					<MDBCheckbox
+					{/* <MDBCheckbox
 						name='flexCheck'
 						value=''
 						id='flexCheckChecked'
@@ -84,7 +87,7 @@ const AddFunction = ({
 						id='flexCheckChecked'
 						label='2 checkbox'
 						defaultChecked
-					/>
+					/> */}
 				</Form.Group>
 				<Form.Group className='mb-3' controlId='formBasicPassword'>
 					<Form.Label>Option 2</Form.Label>
@@ -93,7 +96,14 @@ const AddFunction = ({
 						value={desc2}
 						placeholder='Description'
 					/> */}
-					<MDBSwitch id='flexSwitchCheckDefault' label='On/Off' />
+					<MDBSwitch
+						checked={desc2}
+						onChange={() => {
+							setDesc2(!desc2)
+						}}
+						id='flexSwitchCheckDefault'
+						label='On/Off'
+					/>
 				</Form.Group>
 				<Form.Group className='mb-3' controlId='formBasicPassword'>
 					<Form.Label>Option 3</Form.Label>

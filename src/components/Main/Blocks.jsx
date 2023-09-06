@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Tab from 'react-bootstrap/Tab'
+import AddFunction from './AddFunction'
 import Buttons from './Buttons'
+import EditFunction from './EditFunction'
 import AboutItem from './Item/AboutItem'
 import GroupItem from './Item/GroupItem'
 import ModalAdd from './Modal/ModalAdd'
-import ModalEdit from './Modal/ModalEdit'
 
 function Blocks() {
 	// date
@@ -17,6 +18,8 @@ function Blocks() {
 	const toggleShow = () => setBasicModal(!basicModal)
 	const [basicModal1, setBasicModal1] = useState(false)
 	const toggleShow1 = () => setBasicModal1(!basicModal1)
+	const [basicModal2, setBasicModal2] = useState(false)
+	const toggleShow2 = () => setBasicModal2(!basicModal2)
 
 	// lists
 	const lists = [
@@ -25,8 +28,8 @@ function Blocks() {
 			name: 'Налоговый процесс',
 			status: 'Submitted',
 			type: '1',
-			desc1: '',
-			desc2: '',
+			desc1: true,
+			desc2: false,
 			desc3:
 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
 			date: new Date().toLocaleDateString(),
@@ -36,8 +39,8 @@ function Blocks() {
 			name: 'Увольнение',
 			status: 'Failed',
 			type: '2',
-			desc1: '',
-			desc2: '',
+			desc1: true,
+			desc2: false,
 			desc3:
 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
 			date: new Date().toLocaleDateString(),
@@ -47,8 +50,8 @@ function Blocks() {
 			name: 'Пенсионный процесс',
 			status: 'Done',
 			type: '1',
-			desc1: '',
-			desc2: '',
+			desc1: true,
+			desc2: false,
 			desc3:
 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
 			date: new Date().toLocaleDateString(),
@@ -58,8 +61,8 @@ function Blocks() {
 			name: 'Налоговый процесс',
 			status: 'Done',
 			type: '2',
-			desc1: '',
-			desc2: '',
+			desc1: true,
+			desc2: false,
 			desc3:
 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
 			date: new Date().toLocaleDateString(),
@@ -69,8 +72,8 @@ function Blocks() {
 			name: 'Парламентский процесс',
 			status: 'Failed',
 			type: '3',
-			desc1: '',
-			desc2: '',
+			desc1: true,
+			desc2: false,
 			desc3:
 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
 			date: new Date().toLocaleDateString(),
@@ -80,8 +83,8 @@ function Blocks() {
 			name: 'Судебный процесс',
 			status: 'Submitted',
 			type: '2',
-			desc1: '',
-			desc2: '',
+			desc1: true,
+			desc2: false,
 			desc3:
 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
 			date: new Date().toLocaleDateString(),
@@ -91,8 +94,8 @@ function Blocks() {
 			name: 'Зарплата',
 			status: 'Submitted',
 			type: '2',
-			desc1: '',
-			desc2: '',
+			desc1: true,
+			desc2: false,
 			desc3:
 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
 			date: new Date().toLocaleDateString(),
@@ -171,7 +174,7 @@ function Blocks() {
 		setName('')
 		setStatus('')
 		setType('')
-		setDesc1('')
+		setDesc1(true)
 		setDesc2('')
 		setDesc3('')
 		setStartDate(new Date())
@@ -185,7 +188,7 @@ function Blocks() {
 		setDesc1(item.desc1)
 		setDesc2(item.desc2)
 		setDesc3(item.desc3)
-		setStartDate(item.data)
+		setStartDate(startDate)
 	}
 
 	return (
@@ -194,6 +197,9 @@ function Blocks() {
 				<Col sm={4}>
 					{list.length !== 0 ? (
 						<GroupItem
+							setBasicModal={setBasicModal}
+							setBasicModal1={setBasicModal1}
+							setBasicModal2={setBasicModal2}
 							list={list}
 							activeKey={activeKey}
 							setActiveKey={setActiveKey}
@@ -207,38 +213,61 @@ function Blocks() {
 					<Buttons
 						toggleShow={toggleShow}
 						toggleShow1={toggleShow1}
+						toggleShow2={toggleShow2}
 						remove={remove}
 						clearInput={clearInput}
 					/>
 					<Tab.Content className='second-block'>
-						{list
-							.filter(f => f.id === activeKey)
-							.map(item => (
-								<AboutItem item={item} />
-							))}
+						{basicModal ? (
+							<EditFunction
+								startDate={startDate}
+								setStartDate={setStartDate}
+								setName={setName}
+								setStatus={setStatus}
+								setType={setType}
+								setDesc1={setDesc1}
+								setDesc2={setDesc2}
+								setDesc3={setDesc3}
+								name={name}
+								status={status}
+								type={type}
+								desc1={desc1}
+								desc3={desc3}
+								desc2={desc2}
+								editList={editList}
+							/>
+						) : (
+							''
+						)}
+						{basicModal1 ? (
+							<AddFunction
+								startDate={startDate}
+								setStartDate={setStartDate}
+								setName={setName}
+								setStatus={setStatus}
+								setType={setType}
+								setDesc1={setDesc1}
+								setDesc2={setDesc2}
+								setDesc3={setDesc3}
+								name={name}
+								status={status}
+								type={type}
+								desc1={desc1}
+								desc3={desc3}
+								desc2={desc2}
+								addList={addList}
+							/>
+						) : (
+							''
+						)}
+						{basicModal2
+							? list
+									.filter(f => f.id === activeKey)
+									.map(item => <AboutItem item={item} />)
+							: ''}
 					</Tab.Content>
 				</Col>
 			</Row>
-			<ModalEdit
-				startDate={startDate}
-				setStartDate={setStartDate}
-				editList={editList}
-				basicModal={basicModal}
-				setBasicModal={setBasicModal}
-				toggleShow={toggleShow}
-				setName={setName}
-				setStatus={setStatus}
-				setType={setType}
-				setDesc1={setDesc1}
-				setDesc2={setDesc2}
-				setDesc3={setDesc3}
-				name={name}
-				status={status}
-				type={type}
-				desc1={desc1}
-				desc3={desc3}
-				desc2={desc2}
-			/>
 			<ModalAdd
 				startDate={startDate}
 				setStartDate={setStartDate}

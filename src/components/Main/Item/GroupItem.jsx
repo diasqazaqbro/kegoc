@@ -1,6 +1,14 @@
 import { ListGroup } from 'react-bootstrap'
 
-const GroupItem = ({ list, activeKey, setActiveKey, switchVar }) => {
+const GroupItem = ({
+	list,
+	activeKey,
+	setActiveKey,
+	switchVar,
+	setBasicModal,
+	setBasicModal1,
+	setBasicModal2,
+}) => {
 	const statusSpan = item => {
 		if (item === 'Submitted') {
 			return <span className='badge bg-dark'>{item}</span>
@@ -26,6 +34,9 @@ const GroupItem = ({ list, activeKey, setActiveKey, switchVar }) => {
 					onClick={() => {
 						setActiveKey(item.id)
 						switchVar(item)
+						setBasicModal(false)
+						setBasicModal1(false)
+						setBasicModal2(true)
 					}}
 					action
 				>

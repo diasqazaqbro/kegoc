@@ -1,4 +1,4 @@
-import { MDBCheckbox, MDBSwitch } from 'mdb-react-ui-kit'
+import { MDBBtn, MDBCheckbox, MDBSwitch } from 'mdb-react-ui-kit'
 import { Form } from 'react-bootstrap'
 import ReactDatePicker from 'react-datepicker'
 import SelectList from './SelectList'
@@ -18,9 +18,11 @@ const EditFunction = ({
 	desc2,
 	desc3,
 	status,
+	editList,
 }) => {
 	return (
 		<Form>
+			<h3>Edit item</h3>
 			<Form.Group className='mb-3' controlId='formBasicEmail'>
 				<Form.Label>Title for Post</Form.Label>
 				<Form.Control
@@ -47,6 +49,7 @@ const EditFunction = ({
 			<Form.Group className='mb-3' controlId='formBasicEmail'>
 				<Form.Label>Date</Form.Label>
 				<ReactDatePicker
+					dateFormat='dd.MM.yyyy'
 					selected={startDate}
 					onChange={date => setStartDate(date)}
 				/>
@@ -66,7 +69,7 @@ const EditFunction = ({
 					id='flexCheckDefault'
 					label='1 checkbox'
 				/>
-				<MDBCheckbox
+				{/* <MDBCheckbox
 					name='flexCheck'
 					value={desc1}
 					onChange={event => setDesc1(event.target.value)}
@@ -88,7 +91,7 @@ const EditFunction = ({
 					id='flexCheckChecked'
 					label='2 checkbox'
 					defaultChecked
-				/>
+				/> */}
 			</Form.Group>
 			<Form.Group className='mb-3' controlId='formBasicPassword'>
 				<Form.Label>Option 2</Form.Label>
@@ -128,6 +131,7 @@ const EditFunction = ({
 					]}
 				/>
 			</Form.Group>
+			<MDBBtn onClick={editList}>Save changes</MDBBtn>
 		</Form>
 	)
 }
