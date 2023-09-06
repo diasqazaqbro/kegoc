@@ -1,3 +1,5 @@
+import { MDBCheckbox, MDBSwitch } from 'mdb-react-ui-kit'
+
 const AboutItem = ({ item }) => {
 	const statusSpan = item => {
 		if (item === 'Submitted') {
@@ -36,9 +38,22 @@ const AboutItem = ({ item }) => {
 			</h3>
 			<hr />
 			<h3>Option 1</h3>
-			<p>{item.desc1}</p>
+			<MDBCheckbox name='flexCheck' id='flexCheckDefault' label='1 checkbox' />
+			<MDBCheckbox
+				name='flexCheck'
+				id='flexCheckChecked'
+				label='2 checkbox'
+				defaultChecked
+			/>
+			<MDBCheckbox name='flexCheck' id='flexCheckDefault' label='1 checkbox' />
+			<MDBCheckbox
+				name='flexCheck'
+				id='flexCheckChecked'
+				label='2 checkbox'
+				defaultChecked
+			/>
 			<h3>Option 2</h3>
-			<p>{item.desc2}</p>
+			<MDBSwitch id='flexSwitchCheckDefault' label='On/Off' />
 			<h3>Option 3</h3>
 			<p>{item.desc3}</p>
 

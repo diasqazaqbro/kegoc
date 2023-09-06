@@ -1,4 +1,7 @@
+import { MDBCheckbox, MDBSwitch } from 'mdb-react-ui-kit'
 import { Form } from 'react-bootstrap'
+import ReactDatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 import SelectList from './SelectList'
 
 const AddFunction = ({
@@ -12,6 +15,8 @@ const AddFunction = ({
 	desc1,
 	desc2,
 	desc3,
+	startDate,
+	setStartDate,
 }) => {
 	return (
 		<div className='buttons'>
@@ -34,28 +39,64 @@ const AddFunction = ({
 							{ value: '1', name: '1' },
 							{ value: '2', name: '2' },
 							{ value: '3', name: '3' },
+							{ value: '4', name: '4' },
+							{ value: '5', name: '5' },
 						]}
 					/>
 				</Form.Group>
-
+				<Form.Group className='mb-3' controlId='formBasicEmail'>
+					<Form.Label>Date</Form.Label>
+					<ReactDatePicker
+						selected={startDate}
+						onChange={date => setStartDate(date)}
+					/>
+				</Form.Group>
 				<Form.Group className='mb-3' controlId='formBasicPassword'>
-					<Form.Label>Description 1</Form.Label>
-					<Form.Control
+					<Form.Label>Option 1</Form.Label>
+					{/* <Form.Control
 						onChange={event => setDesc1(event.target.value)}
 						value={desc1}
 						placeholder='Description'
+					/> */}
+
+					<MDBCheckbox
+						name='flexCheck'
+						value=''
+						id='flexCheckDefault'
+						label='1 checkbox'
+					/>
+					<MDBCheckbox
+						name='flexCheck'
+						value=''
+						id='flexCheckChecked'
+						label='2 checkbox'
+						defaultChecked
+					/>
+					<MDBCheckbox
+						name='flexCheck'
+						value=''
+						id='flexCheckDefault'
+						label='1 checkbox'
+					/>
+					<MDBCheckbox
+						name='flexCheck'
+						value=''
+						id='flexCheckChecked'
+						label='2 checkbox'
+						defaultChecked
 					/>
 				</Form.Group>
 				<Form.Group className='mb-3' controlId='formBasicPassword'>
-					<Form.Label>Description 2</Form.Label>
-					<Form.Control
+					<Form.Label>Option 2</Form.Label>
+					{/* <Form.Control
 						onChange={event => setDesc2(event.target.value)}
 						value={desc2}
 						placeholder='Description'
-					/>
+					/> */}
+					<MDBSwitch id='flexSwitchCheckDefault' label='On/Off' />
 				</Form.Group>
 				<Form.Group className='mb-3' controlId='formBasicPassword'>
-					<Form.Label>Description 3</Form.Label>
+					<Form.Label>Option 3</Form.Label>
 					<Form.Control
 						onChange={event => setDesc3(event.target.value)}
 						value={desc3}

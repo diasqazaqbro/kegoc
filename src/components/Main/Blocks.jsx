@@ -1,4 +1,3 @@
-import moment from 'moment/moment'
 import React, { useState } from 'react'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -9,100 +8,10 @@ import GroupItem from './Item/GroupItem'
 import ModalAdd from './Modal/ModalAdd'
 import ModalEdit from './Modal/ModalEdit'
 
-const lists = [
-	{
-		id: Math.random(),
-		name: 'Налоговый процесс',
-		status: 'Submitted',
-		type: '1',
-		desc1:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc2:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc3:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		date: moment().format('YYYY/MM/DD'),
-	},
-	{
-		id: Math.random(),
-		name: 'Увольнение',
-		status: 'Failed',
-		type: '2',
-		desc1:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc2:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc3:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		date: moment().format('YYYY/MM/DD'),
-	},
-	{
-		id: Math.random(),
-		name: 'Пенсионный процесс',
-		status: 'Done',
-		type: '1',
-		desc1:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc2:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc3:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		date: moment().format('YYYY/MM/DD'),
-	},
-	{
-		id: Math.random(),
-		name: 'Налоговый процесс',
-		status: 'Done',
-		type: '2',
-		desc1:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc2:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc3:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		date: moment().format('YYYY/MM/DD'),
-	},
-	{
-		id: Math.random(),
-		name: 'Парламентский процесс',
-		status: 'Failed',
-		type: '3',
-		desc1:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc2:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc3:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		date: moment().format('YYYY/MM/DD'),
-	},
-	{
-		id: Math.random(),
-		name: 'Судебный процесс',
-		status: 'Submitted',
-		type: '2',
-		desc1:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc2:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc3:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		date: moment().format('YYYY/MM/DD'),
-	},
-	{
-		id: Math.random(),
-		name: 'Зарплата',
-		status: 'Submitted',
-		type: '2',
-		desc1:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc2:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		desc3:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
-		date: moment().format('YYYY/MM/DD'),
-	},
-]
 function Blocks() {
+	// date
+	const [startDate, setStartDate] = useState(new Date())
+
 	// modal
 	const [basicModal, setBasicModal] = useState(false)
 	const toggleShow = () => setBasicModal(!basicModal)
@@ -110,6 +19,85 @@ function Blocks() {
 	const toggleShow1 = () => setBasicModal1(!basicModal1)
 
 	// lists
+	const lists = [
+		{
+			id: Math.random(),
+			name: 'Налоговый процесс',
+			status: 'Submitted',
+			type: '1',
+			desc1: '',
+			desc2: '',
+			desc3:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			date: new Date().toLocaleDateString(),
+		},
+		{
+			id: Math.random(),
+			name: 'Увольнение',
+			status: 'Failed',
+			type: '2',
+			desc1: '',
+			desc2: '',
+			desc3:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			date: new Date().toLocaleDateString(),
+		},
+		{
+			id: Math.random(),
+			name: 'Пенсионный процесс',
+			status: 'Done',
+			type: '1',
+			desc1: '',
+			desc2: '',
+			desc3:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			date: new Date().toLocaleDateString(),
+		},
+		{
+			id: Math.random(),
+			name: 'Налоговый процесс',
+			status: 'Done',
+			type: '2',
+			desc1: '',
+			desc2: '',
+			desc3:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			date: new Date().toLocaleDateString(),
+		},
+		{
+			id: Math.random(),
+			name: 'Парламентский процесс',
+			status: 'Failed',
+			type: '3',
+			desc1: '',
+			desc2: '',
+			desc3:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			date: new Date().toLocaleDateString(),
+		},
+		{
+			id: Math.random(),
+			name: 'Судебный процесс',
+			status: 'Submitted',
+			type: '2',
+			desc1: '',
+			desc2: '',
+			desc3:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			date: new Date().toLocaleDateString(),
+		},
+		{
+			id: Math.random(),
+			name: 'Зарплата',
+			status: 'Submitted',
+			type: '2',
+			desc1: '',
+			desc2: '',
+			desc3:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			date: new Date().toLocaleDateString(),
+		},
+	]
 	const [list, setList] = useState(lists)
 
 	// input state
@@ -126,12 +114,12 @@ function Blocks() {
 		const newItem = {
 			id: Math.random(),
 			name,
-			status,
+			status: 'Submitted',
 			type,
 			desc1,
 			desc2,
 			desc3,
-			date: moment().format('YYYY/MM/DD'),
+			date: startDate.toLocaleDateString(),
 		}
 		setList([...list, newItem])
 		setName(name)
@@ -140,6 +128,7 @@ function Blocks() {
 		setDesc1(desc1)
 		setDesc2(desc2)
 		setDesc3(desc3)
+		setStartDate(startDate)
 	}
 
 	// function for edit
@@ -155,6 +144,7 @@ function Blocks() {
 							desc1,
 							desc2,
 							desc3,
+							date: startDate.toLocaleDateString(),
 					  }
 					: item
 			)
@@ -165,6 +155,7 @@ function Blocks() {
 		setDesc1(desc1)
 		setDesc2(desc2)
 		setDesc3(desc3)
+		setStartDate(startDate)
 	}
 
 	//other
@@ -183,6 +174,7 @@ function Blocks() {
 		setDesc1('')
 		setDesc2('')
 		setDesc3('')
+		setStartDate(new Date())
 	}
 
 	// switch variable
@@ -193,6 +185,7 @@ function Blocks() {
 		setDesc1(item.desc1)
 		setDesc2(item.desc2)
 		setDesc3(item.desc3)
+		setStartDate(item.data)
 	}
 
 	return (
@@ -227,6 +220,8 @@ function Blocks() {
 				</Col>
 			</Row>
 			<ModalEdit
+				startDate={startDate}
+				setStartDate={setStartDate}
 				editList={editList}
 				basicModal={basicModal}
 				setBasicModal={setBasicModal}
@@ -245,6 +240,8 @@ function Blocks() {
 				desc2={desc2}
 			/>
 			<ModalAdd
+				startDate={startDate}
+				setStartDate={setStartDate}
 				addList={addList}
 				setName={setName}
 				setType={setType}

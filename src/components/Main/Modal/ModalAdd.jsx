@@ -12,6 +12,8 @@ import React from 'react'
 import AddFunction from './../AddFunction'
 
 export default function ModalAdd({
+	startDate,
+	setStartDate,
 	basicModal,
 	setBasicModal,
 	toggleShow,
@@ -44,6 +46,8 @@ export default function ModalAdd({
 						</MDBModalHeader>
 						<MDBModalBody>
 							<AddFunction
+								startDate={startDate}
+								setStartDate={setStartDate}
 								setName={setName}
 								setStatus={setStatus}
 								setType={setType}

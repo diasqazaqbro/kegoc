@@ -12,6 +12,8 @@ import React from 'react'
 import EditFunction from '../EditFunction'
 
 export default function ModalEdit({
+	startDate,
+	setStartDate,
 	basicModal,
 	setBasicModal,
 	toggleShow,
@@ -44,6 +46,8 @@ export default function ModalEdit({
 						</MDBModalHeader>
 						<MDBModalBody>
 							<EditFunction
+								startDate={startDate}
+								setStartDate={setStartDate}
 								setName={setName}
 								setStatus={setStatus}
 								setType={setType}
