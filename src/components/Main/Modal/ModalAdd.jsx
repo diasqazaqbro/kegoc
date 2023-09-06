@@ -21,15 +21,21 @@ export default function ModalAdd({
 	setName,
 	setStatus,
 	setType,
-	setDesc1,
-	setDesc2,
-	setDesc3,
+	setCheckbox1,
+	setCheckbox2,
+	setCheckbox3,
+	setCheckbox4,
+	setSelector,
+	setDesc,
 	name,
 	status,
 	type,
-	desc1,
-	desc2,
-	desc3,
+	checkbox1,
+	checkbox2,
+	checkbox3,
+	checkbox4,
+	selector,
+	desc,
 }) {
 	return (
 		<>
@@ -51,15 +57,21 @@ export default function ModalAdd({
 								setName={setName}
 								setStatus={setStatus}
 								setType={setType}
-								setDesc1={setDesc1}
-								setDesc2={setDesc2}
-								setDesc3={setDesc3}
+								setCheckbox1={setCheckbox1}
+								setCheckbox2={setCheckbox2}
+								setCheckbox3={setCheckbox3}
+								setCheckbox4={setCheckbox4}
+								setSelector={setSelector}
+								setDesc={setDesc}
 								name={name}
 								status={status}
 								type={type}
-								desc1={desc1}
-								desc3={desc3}
-								desc2={desc2}
+								checkbox1={checkbox1}
+								checkbox2={checkbox2}
+								checkbox3={checkbox3}
+								checkbox4={checkbox4}
+								selector={selector}
+								desc={desc}
 							/>
 						</MDBModalBody>
 

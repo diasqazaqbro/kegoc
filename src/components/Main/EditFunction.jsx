@@ -9,21 +9,27 @@ const EditFunction = ({
 	setName,
 	setStatus,
 	setType,
-	setDesc1,
-	setDesc2,
-	setDesc3,
+	setCheckbox1,
+	setCheckbox2,
+	setCheckbox3,
+	setCheckbox4,
+	setSelector,
+	setDesc,
 	name,
 	type,
-	desc1,
-	desc2,
-	desc3,
+	checkbox1,
+	checkbox2,
+	checkbox3,
+	checkbox4,
+	selector,
+	desc,
 	status,
 	editList,
 }) => {
 	return (
 		<Form>
 			<h3>Edit item</h3>
-			<Form.Group className='mb-3' controlId='formBasicEmail'>
+			<Form.Group className='mb-3'>
 				<Form.Label>Title for Post</Form.Label>
 				<Form.Control
 					onChange={event => setName(event.target.value)}
@@ -31,7 +37,7 @@ const EditFunction = ({
 					placeholder='Enter title'
 				/>
 			</Form.Group>
-			<Form.Group className='mb-3' controlId='formBasicEmail'>
+			<Form.Group className='mb-3'>
 				<Form.Label>Type process</Form.Label>
 				<SelectList
 					setType={setType}
@@ -46,7 +52,7 @@ const EditFunction = ({
 					]}
 				/>
 			</Form.Group>
-			<Form.Group className='mb-3' controlId='formBasicEmail'>
+			<Form.Group className='mb-3'>
 				<Form.Label>Date</Form.Label>
 				<ReactDatePicker
 					dateFormat='dd.MM.yyyy'
@@ -55,7 +61,7 @@ const EditFunction = ({
 				/>
 			</Form.Group>
 
-			<Form.Group className='mb-3' controlId='formBasicPassword'>
+			<Form.Group className='mb-3'>
 				<Form.Label>Option 1</Form.Label>
 				{/* <Form.Control
 					onChange={event => setDesc1(event.target.value)}
@@ -63,61 +69,59 @@ const EditFunction = ({
 					placeholder='Description'
 				/> */}
 				<MDBCheckbox
-					name='flexCheck'
-					value={desc1}
-					onChange={event => setDesc1(event.target.value)}
-					id='flexCheckDefault'
-					label='1 checkbox'
-				/>
-				{/* <MDBCheckbox
-					name='flexCheck'
-					value={desc1}
-					onChange={event => setDesc1(event.target.value)}
-					id='flexCheckChecked'
-					label='2 checkbox'
-					defaultChecked
-				/>
-				<MDBCheckbox
-					name='flexCheck'
-					value={desc1}
-					onChange={event => setDesc1(event.target.value)}
-					id='flexCheckDefault'
+					checked={checkbox1}
+					onClick={() => {
+						setCheckbox1(!checkbox1)
+					}}
 					label='1 checkbox'
 				/>
 				<MDBCheckbox
-					name='flexCheck'
-					value={desc1}
-					onChange={event => setDesc1(event.target.value)}
-					id='flexCheckChecked'
+					checked={checkbox2}
+					onClick={() => {
+						setCheckbox2(!checkbox2)
+					}}
 					label='2 checkbox'
-					defaultChecked
-				/> */}
+				/>
+				<MDBCheckbox
+					checked={checkbox3}
+					onClick={() => {
+						setCheckbox3(!checkbox3)
+					}}
+					label='3 checkbox'
+				/>
+				<MDBCheckbox
+					checked={checkbox4}
+					onClick={() => {
+						setCheckbox4(!checkbox4)
+					}}
+					label='4 checkbox'
+				/>
 			</Form.Group>
-			<Form.Group className='mb-3' controlId='formBasicPassword'>
+			<Form.Group className='mb-3'>
 				<Form.Label>Option 2</Form.Label>
 				{/* <Form.Control
-					onChange={event => setDesc2(event.target.value)}
+					onClick={event => setDesc2(event.target.value)}
 					value={desc2}
 					placeholder='Description'
 				/> */}
 				<MDBSwitch
-					onChange={e => {
-						console.log(e)
+					checked={selector}
+					onClick={() => {
+						setSelector(!selector)
 					}}
-					id='flexSwitchCheckDefault'
 					label='On/Off'
 				/>
 			</Form.Group>
-			<Form.Group className='mb-3' controlId='formBasicPassword'>
+			<Form.Group className='mb-3'>
 				<Form.Label>Option 3</Form.Label>
 				<Form.Control
-					onChange={event => setDesc3(event.target.value)}
-					value={desc3}
+					onChange={event => setDesc(event.target.value)}
+					value={desc}
 					placeholder='Description'
 				/>
 			</Form.Group>
 
-			<Form.Group className='mb-3' controlId='formBasicPassword'>
+			<Form.Group className='mb-3'>
 				<Form.Label>Status</Form.Label>
 				<SelectList
 					setType={setStatus}

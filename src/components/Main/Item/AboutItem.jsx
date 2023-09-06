@@ -38,24 +38,18 @@ const AboutItem = ({ item }) => {
 			</h3>
 			<hr />
 			<h3>Option 1</h3>
-			<MDBCheckbox name='flexCheck' id='flexCheckDefault' label='1 checkbox' />
-			<MDBCheckbox
-				name='flexCheck'
-				id='flexCheckChecked'
-				label='2 checkbox'
-				defaultChecked
-			/>
-			<MDBCheckbox name='flexCheck' id='flexCheckDefault' label='1 checkbox' />
-			<MDBCheckbox
-				name='flexCheck'
-				id='flexCheckChecked'
-				label='2 checkbox'
-				defaultChecked
-			/>
+			<MDBCheckbox disabled checked={item.checkbox1} label='1 checkbox' />
+
+			<MDBCheckbox disabled checked={item.checkbox2} label='2 checkbox' />
+
+			<MDBCheckbox disabled checked={item.checkbox3} label='3 checkbox' />
+
+			<MDBCheckbox disabled checked={item.checkbox4} label='4 checkbox' />
+
 			<h3>Option 2</h3>
-			<MDBSwitch id='flexSwitchCheckDefault' label='On/Off' />
+			<MDBSwitch checked={item.selector} disabled label='On/Off' />
 			<h3>Option 3</h3>
-			<p>{item.desc3}</p>
+			<p>{item.desc}</p>
 
 			{statusSpan(item.status)}
 		</div>

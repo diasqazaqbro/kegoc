@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Tab from 'react-bootstrap/Tab'
-import AddFunction from './AddFunction'
 import Buttons from './Buttons'
 import EditFunction from './EditFunction'
 import AboutItem from './Item/AboutItem'
@@ -21,6 +20,17 @@ function Blocks() {
 	const [basicModal2, setBasicModal2] = useState(false)
 	const toggleShow2 = () => setBasicModal2(!basicModal2)
 
+	// input state
+	const [name, setName] = useState('')
+	const [status, setStatus] = useState('')
+	const [type, setType] = useState('1')
+	const [desc, setDesc] = useState('')
+	const [checkbox1, setCheckbox1] = useState(false)
+	const [checkbox2, setCheckbox2] = useState(false)
+	const [checkbox3, setCheckbox3] = useState(false)
+	const [checkbox4, setCheckbox4] = useState(false)
+	const [selector, setSelector] = useState(false)
+
 	// lists
 	const lists = [
 		{
@@ -28,10 +38,12 @@ function Blocks() {
 			name: 'Налоговый процесс',
 			status: 'Submitted',
 			type: '1',
-			desc1: true,
-			desc2: false,
-			desc3:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			selector: true,
+			checkbox1: true,
+			checkbox2: false,
+			checkbox3: true,
+			checkbox4: true,
+			desc: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ',
 			date: new Date().toLocaleDateString(),
 		},
 		{
@@ -39,10 +51,12 @@ function Blocks() {
 			name: 'Увольнение',
 			status: 'Failed',
 			type: '2',
-			desc1: true,
-			desc2: false,
-			desc3:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			selector: true,
+			checkbox1: true,
+			checkbox2: false,
+			checkbox3: true,
+			checkbox4: true,
+			desc: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ',
 			date: new Date().toLocaleDateString(),
 		},
 		{
@@ -50,10 +64,12 @@ function Blocks() {
 			name: 'Пенсионный процесс',
 			status: 'Done',
 			type: '1',
-			desc1: true,
-			desc2: false,
-			desc3:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			selector: true,
+			checkbox1: true,
+			checkbox2: false,
+			checkbox3: true,
+			checkbox4: true,
+			desc: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ',
 			date: new Date().toLocaleDateString(),
 		},
 		{
@@ -61,10 +77,12 @@ function Blocks() {
 			name: 'Налоговый процесс',
 			status: 'Done',
 			type: '2',
-			desc1: true,
-			desc2: false,
-			desc3:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			selector: true,
+			checkbox1: true,
+			checkbox2: false,
+			checkbox3: true,
+			checkbox4: true,
+			desc: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ',
 			date: new Date().toLocaleDateString(),
 		},
 		{
@@ -72,10 +90,12 @@ function Blocks() {
 			name: 'Парламентский процесс',
 			status: 'Failed',
 			type: '3',
-			desc1: true,
-			desc2: false,
-			desc3:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			selector: true,
+			checkbox1: true,
+			checkbox2: false,
+			checkbox3: true,
+			checkbox4: true,
+			desc: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ',
 			date: new Date().toLocaleDateString(),
 		},
 		{
@@ -83,10 +103,12 @@ function Blocks() {
 			name: 'Судебный процесс',
 			status: 'Submitted',
 			type: '2',
-			desc1: true,
-			desc2: false,
-			desc3:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			selector: true,
+			checkbox1: true,
+			checkbox2: false,
+			checkbox3: true,
+			checkbox4: true,
+			desc: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ',
 			date: new Date().toLocaleDateString(),
 		},
 		{
@@ -94,22 +116,16 @@ function Blocks() {
 			name: 'Зарплата',
 			status: 'Submitted',
 			type: '2',
-			desc1: true,
-			desc2: false,
-			desc3:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet sem mollis urna molestie dapibus. Donec varius malesuada mi quis auctor. Donec quis congue mauris, in placerat est. Praesent porta lectus ut massa auctor lacinia. Cras vestibulum metus sit amet metus sollicitudin, pellentesque accumsan augue rutrum. Integer tempus malesuada mauris pharetra cursus.',
+			selector: true,
+			checkbox1: true,
+			checkbox2: false,
+			checkbox3: true,
+			checkbox4: true,
+			desc: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ',
 			date: new Date().toLocaleDateString(),
 		},
 	]
 	const [list, setList] = useState(lists)
-
-	// input state
-	const [name, setName] = useState('')
-	const [status, setStatus] = useState('')
-	const [type, setType] = useState('1')
-	const [desc1, setDesc1] = useState('')
-	const [desc2, setDesc2] = useState('')
-	const [desc3, setDesc3] = useState('')
 
 	// add new item in list
 	const addList = e => {
@@ -119,23 +135,30 @@ function Blocks() {
 			name,
 			status: 'Submitted',
 			type,
-			desc1,
-			desc2,
-			desc3,
+			checkbox1,
+			checkbox2,
+			checkbox3,
+			checkbox4,
+			selector,
+			desc,
 			date: startDate.toLocaleDateString(),
 		}
 		setList([...list, newItem])
 		setName(name)
 		setStatus(status)
 		setType(type)
-		setDesc1(desc1)
-		setDesc2(desc2)
-		setDesc3(desc3)
+		setCheckbox1(checkbox1)
+		setCheckbox2(checkbox2)
+		setCheckbox3(checkbox3)
+		setCheckbox4(checkbox4)
+		setSelector(selector)
 		setStartDate(startDate)
+		setDesc(desc)
 	}
 
 	// function for edit
-	const editList = () => {
+	const editList = e => {
+		e.preventDefault()
 		setList(prevState =>
 			prevState.map(item =>
 				item.id === activeKey
@@ -144,9 +167,12 @@ function Blocks() {
 							name,
 							status,
 							type,
-							desc1,
-							desc2,
-							desc3,
+							checkbox1,
+							checkbox2,
+							checkbox3,
+							checkbox4,
+							selector,
+							desc,
 							date: startDate.toLocaleDateString(),
 					  }
 					: item
@@ -155,10 +181,13 @@ function Blocks() {
 		setName(name)
 		setStatus(status)
 		setType(type)
-		setDesc1(desc1)
-		setDesc2(desc2)
-		setDesc3(desc3)
+		setCheckbox1(checkbox1)
+		setCheckbox2(checkbox2)
+		setCheckbox3(checkbox3)
+		setCheckbox4(checkbox4)
+		setSelector(selector)
 		setStartDate(startDate)
+		setDesc(desc)
 	}
 
 	//other
@@ -174,21 +203,27 @@ function Blocks() {
 		setName('')
 		setStatus('')
 		setType('')
-		setDesc1(true)
-		setDesc2('')
-		setDesc3('')
+		setCheckbox1(false)
+		setCheckbox2(false)
+		setCheckbox3(false)
+		setCheckbox4(false)
+		setSelector(false)
+		setDesc('')
 		setStartDate(new Date())
 	}
 
-	// switch variable
+	// selector variable
 	const switchVar = item => {
 		setName(item.name)
 		setStatus(item.status)
 		setType(item.type)
-		setDesc1(item.desc1)
-		setDesc2(item.desc2)
-		setDesc3(item.desc3)
+		setCheckbox1(item.checkbox1)
+		setCheckbox2(item.checkbox2)
+		setCheckbox3(item.checkbox3)
+		setCheckbox4(item.checkbox4)
+		setSelector(item.selector)
 		setStartDate(startDate)
+		setDesc(item.desc)
 	}
 
 	return (
@@ -225,46 +260,28 @@ function Blocks() {
 								setName={setName}
 								setStatus={setStatus}
 								setType={setType}
-								setDesc1={setDesc1}
-								setDesc2={setDesc2}
-								setDesc3={setDesc3}
+								setCheckbox1={setCheckbox1}
+								setCheckbox2={setCheckbox2}
+								setCheckbox3={setCheckbox3}
+								setCheckbox4={setCheckbox4}
+								setSelector={setSelector}
+								setDesc={setDesc}
 								name={name}
 								status={status}
 								type={type}
-								desc1={desc1}
-								desc3={desc3}
-								desc2={desc2}
+								checkbox1={checkbox1}
+								checkbox2={checkbox2}
+								checkbox3={checkbox3}
+								checkbox4={checkbox4}
+								selector={selector}
+								desc={desc}
 								editList={editList}
 							/>
 						) : (
-							''
+							list
+								.filter(f => f.id === activeKey)
+								.map(item => <AboutItem item={item} />)
 						)}
-						{basicModal1 ? (
-							<AddFunction
-								startDate={startDate}
-								setStartDate={setStartDate}
-								setName={setName}
-								setStatus={setStatus}
-								setType={setType}
-								setDesc1={setDesc1}
-								setDesc2={setDesc2}
-								setDesc3={setDesc3}
-								name={name}
-								status={status}
-								type={type}
-								desc1={desc1}
-								desc3={desc3}
-								desc2={desc2}
-								addList={addList}
-							/>
-						) : (
-							''
-						)}
-						{basicModal2
-							? list
-									.filter(f => f.id === activeKey)
-									.map(item => <AboutItem item={item} />)
-							: ''}
 					</Tab.Content>
 				</Col>
 			</Row>
@@ -274,18 +291,24 @@ function Blocks() {
 				addList={addList}
 				setName={setName}
 				setType={setType}
-				setDesc1={setDesc1}
-				setDesc2={setDesc2}
-				setDesc3={setDesc3}
+				setCheckbox1={setCheckbox1}
+				setCheckbox2={setCheckbox2}
+				setCheckbox3={setCheckbox3}
+				setCheckbox4={setCheckbox4}
+				setSelector={setSelector}
+				setDesc={setDesc}
 				basicModal={basicModal1}
 				setBasicModal={setBasicModal1}
 				toggleShow={toggleShow1}
 				name={name}
 				status={status}
 				type={type}
-				desc1={desc1}
-				desc3={desc3}
-				desc2={desc2}
+				checkbox1={checkbox1}
+				checkbox2={checkbox2}
+				checkbox3={checkbox3}
+				checkbox4={checkbox4}
+				desc={desc}
+				selector={selector}
 			/>
 		</Tab.Container>
 	)
