@@ -25,7 +25,7 @@ const lists = [
 	},
 	{
 		id: Math.random(),
-		name: 'Какой то процесс',
+		name: 'Увольнение',
 		status: 'Failed',
 		type: '2',
 		desc1:
@@ -51,7 +51,7 @@ const lists = [
 	},
 	{
 		id: Math.random(),
-		name: 'Страховый',
+		name: 'Налоговый процесс',
 		status: 'Done',
 		type: '2',
 		desc1:
