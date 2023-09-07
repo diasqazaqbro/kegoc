@@ -2,7 +2,14 @@ import Delete from './../Icon/Delete'
 import Edit from './../Icon/Edit'
 import Plus from './../Icon/Plus'
 
-const Buttons = ({ toggleShow, toggleShow1, remove, toggleShow2 }) => {
+const Buttons = ({
+	toggleShow,
+	toggleShow1,
+	remove,
+	toggleShow2,
+	clearInput,
+	setActiveKey,
+}) => {
 	return (
 		<div className='button edit-btn'>
 			<div
@@ -18,6 +25,8 @@ const Buttons = ({ toggleShow, toggleShow1, remove, toggleShow2 }) => {
 				onClick={() => {
 					toggleShow1()
 					toggleShow2()
+					clearInput()
+					setActiveKey()
 				}}
 			>
 				<Plus />

@@ -251,6 +251,7 @@ function Blocks() {
 						toggleShow2={toggleShow2}
 						remove={remove}
 						clearInput={clearInput}
+						setActiveKey={setActiveKey}
 					/>
 					<Tab.Content className='second-block'>
 						{basicModal ? (

@@ -72,9 +72,8 @@ export default function ModalAdd({
 								checkbox4={checkbox4}
 								selector={selector}
 								desc={desc}
-							/>
+							/>{' '}
 						</MDBModalBody>
-
 						<MDBModalFooter>
 							<MDBBtn onClick={addList}>Add</MDBBtn>
 						</MDBModalFooter>
