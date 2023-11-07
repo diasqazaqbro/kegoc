@@ -45,7 +45,7 @@ const Login = () => {
 									className='btn btn-primary btn-lg'
 									style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}
 								>
-									Login
+									Войти
 								</Link>
 							</div>
 						</form>
